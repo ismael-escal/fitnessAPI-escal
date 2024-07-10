@@ -2,6 +2,7 @@ const express = require("express");
 const workoutController = require("../controllers/workout");
 const { verify } = require("../auth");
 
+// [SECTION] Routing Component
 const router = express.Router();
 
 

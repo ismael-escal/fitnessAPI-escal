@@ -1,6 +1,7 @@
 // [SECTION] Dependencies and Modules
 const express = require('express');
 const userController = require('../controllers/user');
+const { verify } = require("../auth");
 
 // [SECTION] Routing Component
 const router = express.Router();
