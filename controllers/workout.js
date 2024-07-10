@@ -37,6 +37,29 @@ module.exports.getAllWorkout = async (req, res) => {
 
 };
 
+module.exports.getSpecificWorkout = async (req, res) => {
+
+    const workoutId = req.params.id;
+    const userId = req.user.id;
+
+    try {
+        const workout = await Workout.findById(workoutId);
+
+        if (workout.userId != userId){
+            return res.status(404).send({ message: 'No workouts found.' });
+        }
+
+        if (!workout) {
+            return res.status(404).send({ message: 'No workouts found.' });
+        }
+
+        res.status(200).send({ workout });
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+
+};
+
 module.exports.updateWorkout = (req, res) => {
 
 	let workoutUpdates = {
