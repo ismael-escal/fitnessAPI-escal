@@ -15,6 +15,8 @@ router.post("/register", userController.registerUser);
 // Route for user authentication
 router.post('/login', userController.loginUser);
 
+router.get('/details', verify, userController.getProfile);
+
 
 
 // [SECTION] Export Route System
