@@ -2,6 +2,7 @@
 // [SECTION] Dependencies and Modules
 const express = require('express'); // for creating an express server
 const mongoose = require('mongoose'); // for Schema to model the data structure and manipulate db
+const cors = require("cors");
 
 // [SECTION] Server Setup
 const app = express(); // setup the server
@@ -10,6 +11,7 @@ const port = 4000; // assigning port number for server to listen
 // [SECTION] Middlewares
 app.use(express.json()); // read json data and convert it to a JS object
 app.use(express.urlencoded({extended: true})); // to receive information in other data types such us objects
+app.use(cors());
 
 
 // [SECTION] Database Connection
